@@ -20,44 +20,65 @@
             padding: 0 20px;
         }
         header {
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            border-bottom: 2px solid #f0f0f0;
             margin-bottom: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        nav {
+            display: flex;
+            gap: 8px;
+        }
+        nav a {
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-size: 0.95em;
+        }
+        nav a:hover {
+            background: #f5f5f5;
+            color: #0070f3;
+        }
+        .active-nav {
+            background: #0070f3;
+            color: #fff !important;
+            font-weight: 600;
         }
         .lang-switch {
             display: flex;
-            gap: 10px;
+            gap: 0;
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 4px;
         }
         .lang-btn {
-            padding: 5px 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background: #fff;
+            padding: 6px 14px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
             cursor: pointer;
             font-size: 0.9em;
-        }
-        .lang-btn.active {
-            background: #0070f3;
-            color: #fff;
-            border-color: #0070f3;
-        }
-        nav a {
-            margin-right: 20px;
-            text-decoration: none;
-            color: #0070f3;
+            color: #666;
+            transition: all 0.2s ease;
             font-weight: 500;
         }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .active-nav {
+        .lang-btn:hover {
             color: #333;
-            font-weight: bold;
-            text-decoration: none;
-            cursor: default;
+        }
+        .lang-btn.active {
+            background: #fff;
+            color: #0070f3;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         main {
             padding: 20px 0;
