@@ -54,12 +54,12 @@ const icons = {
         <img src="/logo.jpg" alt="XiaoMiGao" class="hero-logo" />
       </div>
       <h1 class="hero-title">
-        <span v-show="lang === 'zh'">欢迎使用 XiaoMiGao 自助机器人</span>
+        <span v-show="lang === 'zh'">欢迎使用 小米糕（XiaoMiGao）自助机器人</span>
         <span v-show="lang === 'en'">Welcome to XiaoMiGao</span>
       </h1>
       <p class="hero-desc">
-        <span v-show="lang === 'zh'">由 QingYingX (HInXe) 提供的智能自助机器人，<br>为你提供便捷、有趣的智能服务体验。</span>
-        <span v-show="lang === 'en'">An intelligent self-service robot provided by QingYingX (HInXe),<br>for a convenient and fun experience.</span>
+        <span v-show="lang === 'zh'">由 QingYingX(HInXe) 运营的智能自助机器人，为你提供便捷、有趣的智能服务体验。</span>
+        <span v-show="lang === 'en'">An intelligent self-service robot operated by QingYingX(HInXe), for a convenient and fun experience.</span>
       </p>
     </section>
 
@@ -157,7 +157,12 @@ const icons = {
   color: #57606a;
   line-height: 1.8;
   margin: 0 auto;
-  max-width: 480px;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .hero-desc { white-space: normal; }
 }
 
 .section-title {

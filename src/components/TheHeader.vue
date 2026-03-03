@@ -1,8 +1,5 @@
 <script setup>
-import { useRoute } from 'vue-router'
 import { useLang } from '../composables/useLang'
-
-const route = useRoute()
 const { lang, setLang } = useLang()
 </script>
 
@@ -22,15 +19,6 @@ const { lang, setLang } = useLang()
       </router-link>
 
       <v-spacer />
-
-      <router-link
-        v-if="route.path !== '/'"
-        to="/"
-        class="nav-home"
-      >
-        <span v-show="lang === 'zh'">首页</span>
-        <span v-show="lang === 'en'">Home</span>
-      </router-link>
 
       <v-btn-toggle
         :model-value="lang"
@@ -85,18 +73,6 @@ const { lang, setLang } = useLang()
   font-weight: 600;
   color: #1a1a1a;
   letter-spacing: -0.02em;
-}
-
-.nav-home {
-  margin-right: 16px;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: #444;
-  text-decoration: none;
-}
-
-.nav-home:hover {
-  color: #1976d2;
 }
 
 .lang-toggle {

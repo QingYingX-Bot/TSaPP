@@ -1,4 +1,7 @@
-# XiaoMiGao 官网
+# 小米糕（XiaoMiGao）官网
+
+- **机器人名称**：小米糕（XiaoMiGao）
+- **运营者**：QingYingX(HInXe)
 
 Vue 3 + Vite + Vuetify 静态单页应用，部署后为纯静态资源（可放在任意静态托管）。网站图标与顶栏/首页 Logo 使用 `public/logo.jpg`（页面内以圆形展示）。若希望浏览器标签页图标也为圆形，可将 logo 裁剪成圆形后保存为 `public/favicon-circle.png`，并在 `index.html` 中改用该 favicon 的注释说明。
 
