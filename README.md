@@ -1,6 +1,6 @@
 # XiaoMiGao 官网
 
-Vue 3 + Vite 静态单页应用，部署后为纯静态资源（可放在任意静态托管）。
+Vue 3 + Vite + Vuetify 静态单页应用，部署后为纯静态资源（可放在任意静态托管）。网站图标与顶栏/首页 Logo 使用 `public/logo.jpg`（页面内以圆形展示）。若希望浏览器标签页图标也为圆形，可将 logo 裁剪成圆形后保存为 `public/favicon-circle.png`，并在 `index.html` 中改用该 favicon 的注释说明。
 
 ## 开发
 
@@ -25,7 +25,7 @@ npm run build
 ## 项目结构
 
 - `src/views/` — 首页、隐私政策、服务条款三个页面
-- `src/components/` — 公共头部（导航 + 语言切换）、页脚
+- `src/components/` — 公共头部（Logo + 首页入口 + 语言切换）、页脚（隐私政策 / 服务条款链接）
 - `src/composables/useLang.js` — 中/英语言状态与持久化
 - `src/router/` — 路由：`/`、`/privacy`、`/terms`
 

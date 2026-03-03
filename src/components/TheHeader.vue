@@ -4,109 +4,102 @@ import { useLang } from '../composables/useLang'
 
 const route = useRoute()
 const { lang, setLang } = useLang()
-
-const nav = [
-  { path: '/', zh: '首页', en: 'Home' },
-  { path: '/privacy', zh: '隐私政策', en: 'Privacy Policy' },
-  { path: '/terms', zh: '服务条款', en: 'Terms of Service' },
-]
 </script>
 
 <template>
-  <header class="site-header">
-    <nav>
-      <router-link
-        v-for="item in nav"
-        :key="item.path"
-        :to="item.path"
-        class="nav-link"
-        :class="{ 'active-nav': route.path === item.path }"
-      >
-        <span v-show="lang === 'zh'">{{ item.zh }}</span>
-        <span v-show="lang === 'en'">{{ item.en }}</span>
+  <v-app-bar
+    elevation="0"
+    color="white"
+    height="56"
+    class="header-bar"
+  >
+    <v-container class="header-container d-flex align-center">
+      <router-link to="/" class="brand-link">
+        <span class="brand-logo-wrap">
+          <img src="/logo.jpg" alt="" class="brand-logo-img" />
+        </span>
+        <span class="brand-name">XiaoMiGao</span>
       </router-link>
-    </nav>
-    <div class="lang-switch">
-      <button
-        type="button"
-        class="lang-btn"
-        :class="{ active: lang === 'zh' }"
-        @click="setLang('zh')"
+
+      <v-spacer />
+
+      <router-link
+        v-if="route.path !== '/'"
+        to="/"
+        class="nav-home"
       >
-        中文
-      </button>
-      <button
-        type="button"
-        class="lang-btn"
-        :class="{ active: lang === 'en' }"
-        @click="setLang('en')"
+        <span v-show="lang === 'zh'">首页</span>
+        <span v-show="lang === 'en'">Home</span>
+      </router-link>
+
+      <v-btn-toggle
+        :model-value="lang"
+        mandatory
+        density="compact"
+        variant="outlined"
+        divided
+        class="lang-toggle"
+        @update:model-value="setLang"
       >
-        English
-      </button>
-    </div>
-  </header>
+        <v-btn size="small" value="zh">中文</v-btn>
+        <v-btn size="small" value="en">EN</v-btn>
+      </v-btn-toggle>
+    </v-container>
+  </v-app-bar>
 </template>
 
 <style scoped>
-.site-header {
-  padding: 15px 0;
-  border-bottom: 2px solid #f0f0f0;
-  margin-bottom: 30px;
+.header-bar {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.header-container {
+  max-width: 880px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.brand-link {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-nav {
-  display: flex;
-  gap: 8px;
-}
-.nav-link {
-  padding: 8px 16px;
   text-decoration: none;
-  color: #555;
-  font-weight: 500;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  font-size: 0.95em;
+  color: inherit;
 }
-.nav-link:hover {
-  background: #f5f5f5;
-  color: #0070f3;
+
+.brand-logo-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 10px;
 }
-.active-nav {
-  background: #0070f3;
-  color: #fff !important;
+.brand-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.brand-name {
+  font-size: 1.25rem;
   font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
 }
-.lang-switch {
-  display: flex;
-  gap: 0;
-  background: #f5f5f5;
-  border-radius: 8px;
-  padding: 4px;
-}
-.lang-btn {
-  padding: 6px 14px;
-  border: none;
-  border-radius: 6px;
-  background: transparent;
-  cursor: pointer;
-  font-size: 0.9em;
-  color: #666;
-  transition: all 0.2s ease;
+
+.nav-home {
+  margin-right: 16px;
+  font-size: 0.9375rem;
   font-weight: 500;
+  color: #444;
+  text-decoration: none;
 }
-.lang-btn:hover {
-  color: #333;
+
+.nav-home:hover {
+  color: #1976d2;
 }
-.lang-btn.active {
-  background: #fff;
-  color: #0070f3;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+.lang-toggle {
+  border-radius: 6px;
 }
 </style>
