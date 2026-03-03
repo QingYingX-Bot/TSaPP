@@ -1,0 +1,1 @@
+# 将功能演示图片放于此目录，如 demo1.jpg、demo2.jpg，并在 src/views/FeatureDemo.vue 的 demos 数组中配置路径（如 /demo/demo1.jpg）

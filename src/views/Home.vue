@@ -79,6 +79,12 @@ const icons = {
           <p class="feature-desc">{{ lang === 'zh' ? f.zh.desc : f.en.desc }}</p>
         </div>
       </div>
+      <p class="features-more">
+        <router-link to="/demo" class="features-demo-link">
+          <span v-show="lang === 'zh'">查看功能演示 →</span>
+          <span v-show="lang === 'en'">View Feature Demo →</span>
+        </router-link>
+      </p>
     </section>
 
     <section class="join-section">
@@ -178,6 +184,10 @@ const icons = {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 18px;
 }
+
+.features-more { margin-top: 20px; margin-bottom: 0; text-align: center; }
+.features-demo-link { font-weight: 500; color: #1976d2; text-decoration: none; }
+.features-demo-link:hover { text-decoration: underline; }
 
 .feature-card {
   padding: 24px;
